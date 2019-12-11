@@ -10,3 +10,16 @@ puts "Exercise 7"
 puts "----------"
 
 # Your code goes here ...
+@store_name = gets.chomp
+
+store = Store.new(name: @store_name)
+store.valid?
+if store.errors.any?
+  store.errors.each do |attribute, message|
+    puts attribute => message
+  end
+end
+
+store.errors.clear
+store.errors.empty?
+store.save
